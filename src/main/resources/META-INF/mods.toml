@@ -9,28 +9,24 @@ displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
-# 声明前置模组：GeckoLib 和 Curios
 [[dependencies.tacticalvillagers]]
     modId="forge"
     mandatory=true
     versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
-
 [[dependencies.tacticalvillagers]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"
     ordering="NONE"
     side="BOTH"
-
 [[dependencies.tacticalvillagers]]
     modId="geckolib"
     mandatory=true
     versionRange="[4.0,)"
     ordering="NONE"
     side="BOTH"
-
 [[dependencies.tacticalvillagers]]
     modId="curios"
     mandatory=true
