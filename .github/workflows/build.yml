@@ -2,9 +2,7 @@ name: Build Forge 1.20.1 Mod
 
 on:
   push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -20,11 +18,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      # 核心改变：使用 GitHub 提供的 Gradle 环境
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v3
 
+      # 直接运行 gradle build，不再依赖 ./gradlew
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+        run: gradle build --no-daemon
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
