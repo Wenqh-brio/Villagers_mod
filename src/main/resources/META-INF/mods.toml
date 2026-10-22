@@ -26,20 +26,27 @@ description='''${mod_description}'''
 [[dependencies.tacticalvillagers]]
     modId="geckolib"
     mandatory=true
-    versionRange="[4.0,)"
+    versionRange="[4.8.4,4.9.0)"  # 锁定 4.8.4
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.tacticalvillagers]]
     modId="kotlinforforge"
     mandatory=true
-    versionRange="[4.0.0,)"
+    versionRange="[4.12.0,4.13.0)" # 锁定 4.12.0
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.tacticalvillagers]]
+    modId="curios"
+    mandatory=true
+    versionRange="[5.14.1,5.15.0)" # 锁定 5.14.1
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.tacticalvillagers]]
     modId="superbwarfare"
     mandatory=true
-    versionRange="[0.8.8,)"
+    versionRange="[0.8.8,0.8.9)"  # 严格锁定 0.8.8，拒绝新版
     ordering="NONE"
     side="BOTH"

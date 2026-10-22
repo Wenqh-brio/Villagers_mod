@@ -11,7 +11,6 @@ base { archivesName = mod_id }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    // 注意这里：将原来的等号去掉了，改为了标准写法
     mappings channel: 'official', version: minecraft_version
     copyIdeResources = true
     runs {
@@ -28,13 +27,21 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     
-    // 卓越前线的核心前置
+    // 1. GeckoLib (使用 4.8.4 版本)
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.8.4')
-    implementation fg.deobf('curse.maven:kotlin-for-forge-351264:5171091') 
-    implementation fg.deobf('curse.maven:curios-309927:5171091')          
+    
+    // 2. Kotlin for Forge (锁定 4.12.0 版本, File ID: 5414662)
+    implementation fg.deobf('curse.maven:kotlin-for-forge-351264:5414662') 
+    
+    // 3. Curios API (锁定 5.14.1 版本, File ID: 6418456)
+    implementation fg.deobf('curse.maven:curios-309927:6418456')          
 
-    // 卓越前线本体 (0.8.8)
+    // 4. 卓越前线 (锁定 0.8.8 版本, File ID: 7270841)
     implementation fg.deobf('curse.maven:superb-warfare-1218165:7270841') 
+    
+    // 5. 如果你还需要 AshVehicle (锁定 4.5-8.8 版本)
+    // (注意：如果你不需要，可以注释掉，但如果你的玩家装了，建议加上)
+    // implementation fg.deobf('curse.maven:ashvehicle-1291715:7315476')
 }
 
 tasks.named('processResources', ProcessResources).configure {
