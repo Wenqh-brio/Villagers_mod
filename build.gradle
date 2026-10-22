@@ -11,7 +11,8 @@ base { archivesName = mod_id }
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version = minecraft_version
+    // 注意这里：将原来的等号去掉了，改为了标准写法
+    mappings channel: 'official', version: minecraft_version
     copyIdeResources = true
     runs {
         client { workingDirectory project.file('run') }
@@ -27,10 +28,10 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     
-    // 卓越前线及其核心前置
+    // 卓越前线的核心前置
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.8.4')
-    implementation fg.deobf('curse.maven:kotlin-for-forge-351264:5171091') // 建议去CF确认最新ID
-    implementation fg.deobf('curse.maven:curios-309927:5171091')          // 建议去CF确认最新ID
+    implementation fg.deobf('curse.maven:kotlin-for-forge-351264:5171091') 
+    implementation fg.deobf('curse.maven:curios-309927:5171091')          
 
     // 卓越前线本体 (0.8.8)
     implementation fg.deobf('curse.maven:superb-warfare-1218165:7270841') 
