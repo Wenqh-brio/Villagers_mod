@@ -1,11 +1,14 @@
 {
   "item.tacticalvillagers.tactical_gun": "Tactical Rifle",
   "item.tacticalvillagers.taser_gun": "Taser Gun",
+  "item.tacticalvillagers.grenade": "Frag Grenade",
   "item.tacticalvillagers.police_spawn_egg": "Police Spawn Egg",
   "item.tacticalvillagers.swat_spawn_egg": "SWAT Spawn Egg",
   "item.tacticalvillagers.army_spawn_egg": "Army Spawn Egg",
   "entity.tacticalvillagers.police": "Police",
   "entity.tacticalvillagers.swat": "SWAT",
   "entity.tacticalvillagers.army": "Army",
+  "entity.tacticalvillagers.tank": "Tank",
+  "entity.tacticalvillagers.plane": "Plane",
   "effect.tacticalvillagers.paralysis": "Paralysis"
 }
