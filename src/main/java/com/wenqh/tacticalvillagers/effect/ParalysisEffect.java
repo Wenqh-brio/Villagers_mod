@@ -1,4 +1,4 @@
-package com.yourname.tacticalvillagers.effect;
+package com.wenqh.tacticalvillagers.effect;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;

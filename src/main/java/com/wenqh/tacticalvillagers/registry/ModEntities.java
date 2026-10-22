@@ -1,10 +1,8 @@
-package com.yourname.tacticalvillagers.registry;
+package com.wenqh.tacticalvillagers.registry;
 
-import com.yourname.tacticalvillagers.TacticalVillagersMod;
-import com.yourname.tacticalvillagers.entity.*;
-import com.yourname.tacticalvillagers.entity.projectile.*;
-import com.yourname.tacticalvillagers.entity.vehicle.PlaneEntity;
-import com.yourname.tacticalvillagers.entity.vehicle.TankEntity;
+import com.wenqh.tacticalvillagers.TacticalVillagersMod;
+import com.wenqh.tacticalvillagers.entity.*;
+import com.wenqh.tacticalvillagers.entity.projectile.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
@@ -20,8 +18,4 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<BulletProjectile>> BULLET = ENTITY_TYPES.register("bullet", () -> EntityType.Builder.<BulletProjectile>of(BulletProjectile::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("bullet"));
     public static final RegistryObject<EntityType<TaserProjectile>> TASER = ENTITY_TYPES.register("taser", () -> EntityType.Builder.<TaserProjectile>of(TaserProjectile::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("taser"));
-    public static final RegistryObject<EntityType<GrenadeProjectile>> GRENADE = ENTITY_TYPES.register("grenade", () -> EntityType.Builder.<GrenadeProjectile>of(GrenadeProjectile::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("grenade"));
-
-    public static final RegistryObject<EntityType<TankEntity>> TANK = ENTITY_TYPES.register("tank", () -> EntityType.Builder.<TankEntity>of(TankEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("tank"));
-    public static final RegistryObject<EntityType<PlaneEntity>> PLANE = ENTITY_TYPES.register("plane", () -> EntityType.Builder.<PlaneEntity>of(PlaneEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build("plane"));
 }

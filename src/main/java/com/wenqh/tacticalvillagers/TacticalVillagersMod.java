@@ -1,8 +1,8 @@
-package com.yourname.tacticalvillagers;
+package com.wenqh.tacticalvillagers;
 
-import com.yourname.tacticalvillagers.registry.ModEffects;
-import com.yourname.tacticalvillagers.registry.ModEntities;
-import com.yourname.tacticalvillagers.registry.ModItems;
+import com.wenqh.tacticalvillagers.registry.ModEffects;
+import com.wenqh.tacticalvillagers.registry.ModEntities;
+import com.wenqh.tacticalvillagers.registry.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

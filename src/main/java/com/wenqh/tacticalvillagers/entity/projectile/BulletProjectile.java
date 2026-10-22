@@ -1,6 +1,6 @@
-package com.yourname.tacticalvillagers.entity.projectile;
+package com.wenqh.tacticalvillagers.entity.projectile;
 
-import com.yourname.tacticalvillagers.registry.ModEntities;
+import com.wenqh.tacticalvillagers.registry.ModEntities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
