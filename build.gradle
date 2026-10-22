@@ -1,59 +1,15 @@
-plugins {
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-}
-
-version = mod_version
-group = mod_group_id
-base { archivesName = mod_id }
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-minecraft {
-    mappings channel: 'official', version: minecraft_version
-    copyIdeResources = true
-    runs {
-        client { workingDirectory project.file('run') }
-        server { workingDirectory project.file('run') }
-    }
-}
-
-repositories {
-    maven { name = 'GeckoLib'; url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven { name = 'CurseMaven'; url = "https://cursemaven.com"; content { includeGroup "curse.maven" } }
-}
-
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     
-    // 1. GeckoLib (使用 4.8.4 版本)
+    // 1. GeckoLib
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.8.4')
     
-    // 2. Kotlin for Forge (锁定 4.12.0 版本, File ID: 5414662)
-    implementation fg.deobf('curse.maven:kotlin-for-forge-351264:5414662') 
+    // 2. Kotlin for Forge (已更新为 4.12.0 的正确文件 ID: 6706911)
+    implementation fg.deobf('curse.maven:kotlin-for-forge-351264:6706911') 
     
-    // 3. Curios API (锁定 5.14.1 版本, File ID: 6418456)
+    // 3. Curios API (已更新为 5.14.1 的正确文件 ID: 6418456)
     implementation fg.deobf('curse.maven:curios-309927:6418456')          
 
-    // 4. 卓越前线 (锁定 0.8.8 版本, File ID: 7270841)
+    // 4. 卓越前线 (0.8.8)
     implementation fg.deobf('curse.maven:superb-warfare-1218165:7270841') 
-    
-    // 5. 如果你还需要 AshVehicle (锁定 4.5-8.8 版本)
-    // (注意：如果你不需要，可以注释掉，但如果你的玩家装了，建议加上)
-    // implementation fg.deobf('curse.maven:ashvehicle-1291715:7315476')
-}
-
-tasks.named('processResources', ProcessResources).configure {
-    var replaceProperties = [
-            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version, forge_version_range: forge_version_range,
-            loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
-    ]
-    inputs.properties replaceProperties
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
-    }
 }
