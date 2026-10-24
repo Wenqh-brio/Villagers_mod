@@ -1,5 +1,6 @@
 package com.wenqh.tacticalvillagers.entity;
 
+import com.wenqh.tacticalvillagers.entity.TacticalVillager;
 import com.wenqh.tacticalvillagers.entity.projectile.BulletProjectile;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -86,8 +87,17 @@ public class BanditEntity extends Monster {
         }
 
         // 走位逻辑
-        if (distSqr < 36.0D) { 
-            this.getNavigation().moveAwayFromEntity(target, 8.0D); // 太近了，后退
+        if (distSqr < 36.0D) { // 距离小于 6 格，太近了，后退
+            // 计算远离目标的方向坐标
+            double dx = this.getX() - target.getX();
+            double dz = this.getZ() - target.getZ();
+            // 归一化并设定后退距离（比如退后 8 格）
+            double length = Math.sqrt(dx * dx + dz * dz);
+            if (length > 0) {
+                double targetX = this.getX() + (dx / length) * 8.0D;
+                double targetZ = this.getZ() + (dz / length) * 8.0D;
+                this.getNavigation().moveTo(targetX, this.getY(), targetZ, 1.2D);
+            }
         } else if (distSqr > 256.0D) { 
             this.getNavigation().moveTo(target, 1.2D); // 太远了，靠近
         } else { 

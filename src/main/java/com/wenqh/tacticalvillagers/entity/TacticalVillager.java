@@ -46,10 +46,11 @@ public class TacticalVillager extends Villager {
     }
     
     @Override
-    public void killedEntity(net.minecraft.server.level.ServerLevel level, LivingEntity entity) {
-        super.killedEntity(level, entity);
+    public boolean killedEntity(net.minecraft.server.level.ServerLevel level, LivingEntity entity) {
+        boolean result = super.killedEntity(level, entity);
         combatExp += 10;
         checkLevelUp();
+        return result;
     }
     
     private void checkLevelUp() {
