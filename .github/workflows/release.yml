@@ -1,15 +1,24 @@
-name: Publish to GitHub Release
+name: Build and Release Mod
 
 on:
+  # 1. 允许手动触发 (支持 gh CLI 和 网页按钮)
+  workflow_dispatch:
+  
+  # 2. 推送到 main 分支时触发 (日常构建，不发布 Release)
   push:
+    branches:
+      - main
     tags:
-      - 'v*' # 只有当你推送形如 v1.0.0 的 tag 时才会触发
+      - 'v*' # 3. 推送以 v 开头的 tag 时触发 (发布 Release)
 
 jobs:
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
+    
+    # 给予自动发布 Release 的权限
     permissions:
-      contents: write # 授予自动创建 Release 的权限
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,7 +37,16 @@ jobs:
       - name: Build with Gradle
         run: gradle build --no-daemon
 
-      - name: Create Release and Upload JAR
+      # 如果只是普通推送或手动触发，仅仅上传 Artifact 供下载
+      - name: Upload JAR Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tactical-villagers-jar
+          path: build/libs/*.jar
+
+      # 如果推送的是 Tag (例如 v1.0.0)，则自动创建 Release 并上传 JAR
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
           files: build/libs/*.jar
