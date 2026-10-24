@@ -1,6 +1,6 @@
-package com.yourname.tacticalvillagers.registry;
+package com.wenqh.tacticalvillagers.registry;
 
-import com.yourname.tacticalvillagers.TacticalVillagersMod;
+import com.wenqh.tacticalvillagers.TacticalVillagersMod;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;

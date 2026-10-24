@@ -1,8 +1,8 @@
-package com.yourname.tacticalvillagers.registry;
+package com.wenqh.tacticalvillagers.registry;
 
-import com.yourname.tacticalvillagers.TacticalVillagersMod;
-import com.yourname.tacticalvillagers.entity.*;
-import com.yourname.tacticalvillagers.entity.projectile.*;
+import com.wenqh.tacticalvillagers.TacticalVillagersMod;
+import com.wenqh.tacticalvillagers.entity.*;
+import com.wenqh.tacticalvillagers.entity.projectile.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;

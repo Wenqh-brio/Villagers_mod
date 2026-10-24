@@ -1,7 +1,7 @@
-package com.yourname.tacticalvillagers.registry;
+package com.wenqh.tacticalvillagers.registry;
 
-import com.yourname.tacticalvillagers.TacticalVillagersMod;
-import com.yourname.tacticalvillagers.effect.ParalysisEffect;
+import com.wenqh.tacticalvillagers.TacticalVillagersMod;
+import com.wenqh.tacticalvillagers.effect.ParalysisEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
