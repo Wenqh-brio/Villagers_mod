@@ -1,15 +1,50 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = mod_version
+group = mod_group_id
+base { archivesName = mod_id }
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    copyIdeResources = true
+    runs {
+        client { workingDirectory project.file('run') }
+        server { workingDirectory project.file('run') }
+    }
+}
+
+repositories {
+    maven { name = 'GeckoLib'; url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven { name = 'CurseMaven'; url = "https://cursemaven.com"; content { includeGroup "curse.maven" } }
+}
+
 dependencies {
+    // 核心：这一行必须在大括号里面
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     
-    // 1. GeckoLib
+    // 卓越前线及前置
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.8.4')
-    
-    // 2. Kotlin for Forge (已更新为 4.12.0 的正确文件 ID: 6706911)
     implementation fg.deobf('curse.maven:kotlin-for-forge-351264:6706911') 
-    
-    // 3. Curios API (已更新为 5.14.1 的正确文件 ID: 6418456)
     implementation fg.deobf('curse.maven:curios-309927:6418456')          
-
-    // 4. 卓越前线 (0.8.8)
     implementation fg.deobf('curse.maven:superb-warfare-1218165:7270841') 
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }
 }
