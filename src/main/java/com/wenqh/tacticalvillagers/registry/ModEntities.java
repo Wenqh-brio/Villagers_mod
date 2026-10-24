@@ -15,6 +15,8 @@ public class ModEntities {
     public static final RegistryObject<EntityType<PoliceVillager>> POLICE = ENTITY_TYPES.register("police", () -> EntityType.Builder.of(PoliceVillager::new, MobCategory.CREATURE).sized(0.6F, 1.95F).build("police"));
     public static final RegistryObject<EntityType<SwatVillager>> SWAT = ENTITY_TYPES.register("swat", () -> EntityType.Builder.of(SwatVillager::new, MobCategory.CREATURE).sized(0.6F, 1.95F).build("swat"));
     public static final RegistryObject<EntityType<ArmyVillager>> ARMY = ENTITY_TYPES.register("army", () -> EntityType.Builder.of(ArmyVillager::new, MobCategory.CREATURE).sized(0.6F, 1.95F).build("army"));
+    
+    public static final RegistryObject<EntityType<BanditEntity>> BANDIT = ENTITY_TYPES.register("bandit", () -> EntityType.Builder.of(BanditEntity::new, MobCategory.MONSTER).sized(0.6F, 1.95F).build("bandit"));
 
     public static final RegistryObject<EntityType<BulletProjectile>> BULLET = ENTITY_TYPES.register("bullet", () -> EntityType.Builder.<BulletProjectile>of(BulletProjectile::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("bullet"));
     public static final RegistryObject<EntityType<TaserProjectile>> TASER = ENTITY_TYPES.register("taser", () -> EntityType.Builder.<TaserProjectile>of(TaserProjectile::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("taser"));
